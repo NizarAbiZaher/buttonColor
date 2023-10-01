@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Change BTN</title>
+</head>
+
+<body onclick="setColor()">
+    // input
+    <input type="button" id="button" value="button" style="color:white" onclick="setColor();" data-color-index="0" />
+
+    
+    <script>
+        // colors 
+        let colors = ["#FFFFFF", "#C0B298", "#B6EEA6", "#A9FFCB", "#AA4586", "#B48B7D", "#FFF9A5", "#DFEFCA", "#CCDDD3", "#AFC2D5"];
+        // function
+        function setColor() {
+            // get element name
+            let buttonColor = document.getElementById("button");
+            // get color index
+            let currIndex = parseInt(buttonColor.getAttribute("data-color-index"));
+            // function
+            for (let i = 0; i < colors.length; i++) {
+                if (i === currIndex) {
+                    buttonColor.style.backgroundColor = colors[i];
+                    buttonColor.setAttribute("data-color-index", (i + 1) % colors.length);
+                    break;
+                }
+            }
+            
+        }
+    </script>
+
+</body>
+
+</html>
